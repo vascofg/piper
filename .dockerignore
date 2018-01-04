@@ -1,0 +1,9 @@
+.git
+.gitignore
+*.md
+Dockerfile
+LICENSE
+mvnw
+mvnw.cmd
+scripts
+known_hosts
