@@ -13,7 +13,7 @@ RUN apk add --no-cache \
 	
 COPY --from=0 /build/piper-server/target/piper-server-0.0.1-SNAPSHOT.jar /app/piper.jar
 
-WORKDIR /tmp/piper
+WORKDIR /piper
 
 ENTRYPOINT []
 CMD ["java", "-Xmx1g", "-jar", "-Djava.security.egd=file:/dev/./urandom", "/app/piper.jar"]
