@@ -1,0 +1,21 @@
+version: "2.1"
+services:
+  piper:
+    build: .
+    ports:
+      - 8080:8080
+    environment:
+      - piper.worker.enabled=true
+      - piper.coordinator.enabled=true
+      - piper.worker.subscriptions.tasks=5
+      - piper.pipeline-repository.filesystem.enabled=true
+      - piper.pipeline-repository.filesystem.location-pattern=/root/piper-pipelines/**/*.yaml
+    volumes:
+      - ./known_hosts:/root/.ssh/known_hosts
+      - ../piper-pipelines:/root/piper-pipelines
+    networks:
+      - backend_default
+      
+networks:
+  backend_default:
+    external: true
