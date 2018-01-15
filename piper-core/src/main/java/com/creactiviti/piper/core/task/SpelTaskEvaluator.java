@@ -96,6 +96,9 @@ public class SpelTaskEvaluator implements TaskEvaluator {
       else if("int".equals(name)) {
         return toInt();
       }
+      else if("float".equals(name)) {
+        return toFloat();
+      }
       return null;
     };
   }
@@ -112,6 +115,13 @@ public class SpelTaskEvaluator implements TaskEvaluator {
   private MethodExecutor toInt () {
     return (ctx,target,args) -> {
       Integer value = (Integer) ConvertUtils.convert(args[0], Integer.class);
+      return new TypedValue(value);
+    };
+  }
+
+  private MethodExecutor toFloat () {
+    return (ctx,target,args) -> {
+      Float value = (Float) ConvertUtils.convert(args[0], Float.class);
       return new TypedValue(value);
     };
   }
