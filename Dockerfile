@@ -9,7 +9,8 @@ FROM openjdk:8-jre-alpine
 RUN apk add --no-cache \
 	curl \
 	python \
-	ffmpeg
+	ffmpeg \
+	lftp
 	
 COPY --from=0 /build/piper-server/target/piper-server-0.0.1-SNAPSHOT.jar /app/piper.jar
 
