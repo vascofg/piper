@@ -11,7 +11,10 @@ RUN apk add --no-cache \
 	python \
 	ffmpeg \
 	lftp
-	
+
+# disable ftp ssl
+RUN echo "set ftp:ssl-allow no" >> /etc/lftp.conf
+
 COPY --from=0 /build/piper-server/target/piper-server-0.0.1-SNAPSHOT.jar /app/piper.jar
 
 WORKDIR /piper
