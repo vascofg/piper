@@ -10,7 +10,8 @@ RUN apk add --no-cache \
 	curl \
 	python \
 	ffmpeg \
-	lftp
+	lftp \
+	mediainfo
 
 # disable ftp ssl
 RUN echo "set ftp:ssl-allow no" >> /etc/lftp.conf

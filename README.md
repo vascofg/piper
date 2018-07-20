@@ -1,6 +1,6 @@
 # Introduction
 
-Piper is a distributed workflow engine designed to be dead simple. 
+Piper is an open-source, distributed workflow engine built on Spring Boot, designed to be dead simple. 
 
 Piper can run on one or a thousand machines depending on your scaling needs. 
 
@@ -131,7 +131,7 @@ Run the `tasks` collection of functions in parallel, without waiting until the p
 - type: parallel
   tasks: 
     - type: print
-      millis: hello
+      text: hello
         
     - type: print
       text: goodbye
@@ -365,15 +365,11 @@ curl -s -X POST -H Content-Type:application/json -d '{"pipelineId":"video/transc
 
 ## Transcoding a Video (Split & Stitch)
 
-This tutorial demostrates how to transcode a source video by splitting it to chunks and transcoding these chunks in parallel, potentially by multiple nodes.
+See [Transcoding video at scale with Piper](https://medium.com/@arik.c.mail/transcoding-video-at-scale-with-piper-dca23eb26fd2)
 
-Note: You must have [ffmpeg](https://hub.docker.com/r/jrottenberg/ffmpeg/) installed on your worker machine to get this demo to work
+## Adaptive Streaming
 
-
-```
-curl -s -X POST -H Content-Type:application/json -d '{"pipelineId":"video/split_n_stitch","inputs":{"input":"/path/to/input.mov","output":"/path/to/output.mp4"}}' http://localhost:8080/jobs 
-```
-
+See [Adaptive Streaming with Piper](https://medium.com/@arik.c.mail/adaptive-streaming-with-piper-b37e55d95466)
 
 # Using Git as a Pipeline Repository backend
 
@@ -455,6 +451,13 @@ docker run --name=piper --rm -it -e piper.worker.enabled=true -e piper.coordinat
 ```
 curl -s -X POST -H Content-Type:application/json -d '{"pipelineId":"hello","inputs":{"name":"Joe Jones"}}' http://localhost:8080/jobs
 ```
+## Contributors (in alphabetical order)
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+| [<img src="https://avatars0.githubusercontent.com/u/3052806?s=460&v=4" width="100px;"/><br /><sub>Arik Cohen</sub>](http://creactiviti.com)<br /> | [<img src="https://avatars3.githubusercontent.com/u/9574336?s=460&v=4" width="100px;"/><br /><sub>Chris Camel</sub>](https://github.com/ccamel)<br />  | [<img src="https://avatars0.githubusercontent.com/u/1426551?s=460&v=4" width="100px;"/><br /><sub>Daisuke MURAOKA</sub>](https://github.com/muranoya)<br /> | [<img src="https://avatars1.githubusercontent.com/u/83333?s=460&v=4" width="100px;"/><br /><sub>Julien Rottenberg</sub>](https://github.com/jrottenberg)<br /> | [<img src="https://avatars2.githubusercontent.com/u/634441?s=460&v=4" width="100px;"/><br /><sub>Vasco Gonçalves</sub>](https://github.com/vascofg)<br /> |  
+| :---: | :---: | :---: | :---: | :---: | 
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 
 # License
